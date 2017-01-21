@@ -114,21 +114,21 @@ compilation of useful commands used on a daily basis
 6. Unix
 7. Examples:
 a. Renaming files:
-    ls | awk '$1 ~/^file/ {print "mv "$1" "$1".new"}'| sh
+    ```ls | awk '$1 ~/^file/ {print "mv "$1" "$1".new"}'| sh```
 b. Renaming within filename
-    ls *new* | awk '{print "mv "$1" "$1}' | sed s/new/jeyrs/2 | sh
+    ```ls *new* | awk '{print "mv "$1" "$1}' | sed s/new/jeyrs/2 | sh```
 c. Remove duplicate and non consecutive lines 
-    awk '!($0 in array){array[$0]; print}' aFile
+    ```awk '!($0 in array){array[$0]; print}' aFile```
 d. Remove big archive files using find 
-    find / -type f -name *.zip -size +100M -exec rm -i {} \;"
+    ```find / -type f -name *.zip -size +100M -exec rm -i {} \;"```
 e. Find the top 5 small files
-    find . -type f -exec ls -s {} \; | sort -n | head -5
+    ```find . -type f -exec ls -s {} \; | sort -n | head -5```
 f. Find & Replace recursively
-    find -name '*.txt' -exec sed -i 's/foo/bar/g' {} +
+    ```find -name '*.txt' -exec sed -i 's/foo/bar/g' {} +```
 g. batch renaming of extension for .wav.wav to .wav
-    ls *.wav | awk '{s=substr($1,1,length($1)-4); print "mv " s ".wav " s ""}'| sh
+    ```ls *.wav | awk '{s=substr($1,1,length($1)-4); print "mv " s ".wav " s ""}'| sh```
 h. Replace all '.txt' file extension to '.log' extension and display "rename" command in console:
-    ls *.txt |awk ' {s=substr($1, 1, length($1) - 4); print "mv " s ".txt " s ".log"}'
+    ```ls *.txt |awk ' {s=substr($1, 1, length($1) - 4); print "mv " s ".txt " s ".log"}'```
 
     * Executable mode of bulk replace file extension from '.txt' to '.log':
-        ls *.txt |awk ' {s=substr($0, 1, length($0) - 4); system("mv " s ".txt " s ".log")}'
+        ```ls *.txt |awk ' {s=substr($0, 1, length($0) - 4); system("mv " s ".txt " s ".log")}'```
